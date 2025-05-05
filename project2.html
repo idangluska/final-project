@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+  <meta charset="UTF-8">
+  <title>קוף וזורק הבננות 🍌</title>
+  <style>
+    body {
+      direction: rtl;
+      font-family: Arial, sans-serif;
+      background-color: #f0f8ff;
+      text-align: center;
+    }
+    canvas {
+      border: 2px solid #333;
+      background-color: #d0f0c0;
+      display: block;
+      margin: 20px auto;
+      background-image: url("monkey.png");
+      background-size: 100% 100%;
+      background-position: center;
+    
+
+    }
+    .stats, .controls, .shop {
+      margin: 10px auto;
+      max-width: 400px;
+    }
+    .shop {
+      display: none;
+      background-color: #fff4cc;
+      border: 1px solid #aaa;
+      padding: 15px;
+    }
+  </style>
+</head>
+<body>
+  <h1>משחק הקוף והבננות</h1>
+
+  <canvas id="gameCanvas" width="600" height="400"></canvas>
+
+  <div class="stats">
+    <p>תפיסות: <span id="caught">0</span></p>
+    <p>החטאות: <span id="missed">0</span></p>
+    <p>נקודות: <span id="score">0</span></p>
+  </div>
+
+  <div class="controls">
+    <label>קצב זריקת בננות (1-10 לשנייה): 
+      <input type="number" id="bananaRate" min="1" max="10" value="3">
+    </label>
+    <br><br>
+    <label>עוצמת מוזיקה:
+      <input type="range" id="musicVolume" min="0" max="1" step="0.1" value="0.5">
+    </label>
+    <br><br>
+    <button onclick="toggleShop()">פתח חנות</button>
+  </div>
+
+  <div class="shop" id="shop">
+    <h3>🛒 חנות</h3>
+    <button onclick="buyItem('bananaColor')">צבע בננה חדש (10 נקודות)</button><br><br>
+    <button onclick="buyItem('monkeySkin')">מראה חדש לקוף (20 נקודות)</button><br><br>
+    <button onclick="toggleShop()">סגור חנות</button>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
